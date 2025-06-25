@@ -28,7 +28,6 @@ body {
     background-image: linear-gradient(90deg, #303030 0%, #303030 50%, #303030 100%, #303030 150%, #303030 200%);
     background-size: 200% 100%; /* Duplo o tamanho para animação contínua */
     background-position: 0% 0%;
-    animation: waveContinuous 8s infinite linear; /* Animação de onda */
 
     border-bottom: 4px solid #ffffff; /* Contorno branco na parte inferior */
 
