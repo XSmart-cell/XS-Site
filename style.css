@@ -13,7 +13,7 @@ body {
 /* --- Estilos da BARRA SUPERIOR (onde o banner vai) --- */
 .top-bar {
     width: 100%;
-    background-color: #0a0a0a; /* Cor de fallback (preto escuro) */
+    background-color: #303030; /* Cor de fallback (preto escuro) */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: fixed; /* Essencial: fixa a barra no topo */
     top: 0;
@@ -25,12 +25,12 @@ body {
     overflow: hidden; /* Garante que o conteúdo animado não vaze */
 
     /* Gradiente de Onda Contínua: preto-vermelho-preto */
-    background-image: linear-gradient(90deg, #0a0a0a 0%, #B00000 50%, #0a0a0a 100%, #B00000 150%, #0a0a0a 200%);
+    background-image: linear-gradient(90deg, #303030 0%, #303030 50%, #303030 100%, #303030 150%, #303030 200%);
     background-size: 200% 100%; /* Duplo o tamanho para animação contínua */
     background-position: 0% 0%;
     animation: waveContinuous 8s infinite linear; /* Animação de onda */
 
-    border-bottom: 2px solid #ffffff; /* Contorno branco na parte inferior */
+    border-bottom: 4px solid #ffffff; /* Contorno branco na parte inferior */
 
     /* DEFINA A ALTURA DA TOP BAR AQUI PARA COMPENSAR NO CONTEÚDO */
     height: 140px; /* Ajuste esta altura para a altura real do seu banner + respiro */
@@ -118,8 +118,8 @@ body {
 }
 
 .menu-overlay nav {
-    background-color: #B00000; /* Cor de fallback para o menu */
-    background-image: linear-gradient(to top, #0a0a0a, #B00000); /* Gradiente invertido */
+    background-color: #5d5d5d; /* Cor de fallback para o menu */
+    background-image: linear-gradient(to top, #5d5d5d, #5d5d5d); /* Gradiente invertido */
     width: auto;
     max-width: 250px;
     min-width: 150px;
