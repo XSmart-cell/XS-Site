@@ -1,0 +1,259 @@
+/* Reset básico e estilos globais */
+body {
+    margin: 0; /* Remove margens padrão do navegador */
+    font-family: Arial, sans-serif;
+    /* Fundo preto com gradiente vermelho no corpo da página */
+    background-color: #0a0a0a; /* Cor de fallback */
+    background-image: linear-gradient(to bottom, #0a0a0a, #B00000); /* Gradiente principal */
+    background-attachment: fixed; /* Fixo para cobrir toda a página */
+    background-size: cover; /* Tamanho para cobrir toda a área */
+    color: #ffffff; /* Cor do texto padrão para branco */
+}
+
+/* --- Estilos da BARRA SUPERIOR (onde o banner vai) --- */
+.top-bar {
+    width: 100%;
+    background-color: #0a0a0a; /* Cor de fallback (preto escuro) */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed; /* Essencial: fixa a barra no topo */
+    top: 0;
+    left: 0;
+    z-index: 998; /* Z-index para a barra superior */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Garante que o conteúdo animado não vaze */
+
+    /* Gradiente de Onda Contínua: preto-vermelho-preto */
+    background-image: linear-gradient(90deg, #0a0a0a 0%, #B00000 50%, #0a0a0a 100%, #B00000 150%, #0a0a0a 200%);
+    background-size: 200% 100%; /* Duplo o tamanho para animação contínua */
+    background-position: 0% 0%;
+    animation: waveContinuous 8s infinite linear; /* Animação de onda */
+
+    border-bottom: 2px solid #ffffff; /* Contorno branco na parte inferior */
+
+    /* DEFINA A ALTURA DA TOP BAR AQUI PARA COMPENSAR NO CONTEÚDO */
+    height: 120px; /* Ajuste esta altura para a altura real do seu banner + respiro */
+    /* Se a altura do banner for variável, use min-height: 120px; */
+}
+
+/* Keyframes para a animação de Onda Contínua da Top Bar */
+@keyframes waveContinuous {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: -100% 0%; /* Move um ciclo completo para a esquerda */
+    }
+}
+
+.banner-img {
+    max-width: 100%;
+    height: auto; /* ESSENCIAL: Permite que a altura da imagem se ajuste */
+    object-fit: contain; /* Redimensiona a imagem para caber sem cortar */
+    display: block;
+}
+
+/* --- Estilos do BOTÃO HAMBURGER (o ícone) --- */
+.menu-icon {
+    position: fixed; /* Fixa o ícone na tela */
+    top: 15px; /* Ajuste a posição vertical dentro da top-bar */
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000; /* Garante que o ícone esteja acima de tudo */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Animação do ícone quando o menu está aberto */
+.menu-icon.open span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* --- Estilos do MENU DE NAVEGAÇÃO (o overlay que desliza da esquerda) --- */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: none;
+    background-color: transparent;
+    opacity: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 0;
+    transform: translateX(-100%); /* Escondido à esquerda */
+    transition: transform 0.5s ease-in-out;
+    z-index: 999;
+    flex-direction: column;
+}
+
+.menu-overlay.show {
+    transform: translateX(0); /* Desliza para a direita */
+}
+
+.menu-overlay nav {
+    background-color: #B00000; /* Cor de fallback para o menu */
+    background-image: linear-gradient(to top, #0a0a0a, #B00000); /* Gradiente invertido */
+    width: auto;
+    max-width: 250px;
+    min-width: 150px;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    padding: 20px;
+    box-sizing: border-box;
+    padding-top: 70px; /* Espaço para o ícone do menu */
+}
+
+.menu-overlay ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-overlay ul li {
+    margin-bottom: 15px;
+}
+
+.menu-overlay ul li a {
+    text-decoration: none;
+    color: #FFFFFF; /* Cor do texto dos links */
+    font-size: 1.2em;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    background-color: #FF0000; /* Fundo vermelho para os botões */
+    text-align: left;
+}
+
+.menu-overlay ul li a:hover {
+    background-color: #CC0000; /* Tom mais escuro de vermelho no hover */
+}
+
+/* --- Estilos para a GRADE DE PRODUTOS (os celulares) --- */
+.product-grid {
+    padding: 20px;
+    text-align: center;
+    margin-top: 140px; /* Ajuste se a altura da top-bar for diferente */
+}
+
+.product-grid h2 {
+    /* NOVO: Estilos para a caixa rosa arredondada */
+    background-color: #FF69B4; /* Cor rosa vibrante (Hot Pink) */
+    color: #ffffff; /* Cor do texto branco para contraste */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 25px; /* Bordas arredondadas (ajuste para mais ou menos arredondamento) */
+    display: inline-block; /* Faz a caixa se ajustar ao tamanho do texto */
+    margin-bottom: 30px; /* Mantém o espaçamento para os produtos abaixo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar */
+}
+
+.product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* O restante do seu CSS para .product-item, .product-item img, etc. permanece o mesmo. */
+
+.product-grid h2 {
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+
+    /* PROPRIEDADES CHAVE PARA O LAYOUT LADO A LADO E PEQUENO */
+    display: grid; /* ESSENCIAL: Ativa o modo de grade */
+    /* Define colunas que se ajustam automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* minmax(180px, 1fr): cada item terá no mínimo 180px de largura e se expandirá até 1 fração do espaço disponível */
+    gap: 20px; /* Espaçamento entre os itens da grade */
+    justify-content: center; /* Centraliza a grade horizontalmente na página */
+}
+
+.product-item {
+    /* O tamanho de cada item será controlado pelo `grid-template-columns` do .product-list */
+    background-color: #000040;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+    /* NENHUMA LARGURA OU ALTURA FIXA AQUI! O grid controla isso. */
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-item a {
+    display: block;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+.product-item img {
+    width: 100%; /* A imagem ocupa 100% da largura do seu contêiner (.product-item) */
+    height: auto; /* A altura se ajusta proporcionalmente */
+    max-width: 100%; /* Garante que nunca ultrapasse 100% da largura do pai */
+    display: block;
+    border-bottom: 1px solid #eee;
+    object-fit: contain; /* Redimensiona a imagem para caber sem cortar */
+    object-position: center; /* Centraliza a imagem no espaço disponível */
+}
+
+.product-item h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.product-item .price {
+    color: #A0FF00;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.product-item .description {
+    font-size: 0.9
