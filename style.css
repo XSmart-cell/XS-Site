@@ -33,7 +33,7 @@ body {
     border-bottom: 2px solid #ffffff; /* Contorno branco na parte inferior */
 
     /* DEFINA A ALTURA DA TOP BAR AQUI PARA COMPENSAR NO CONTEÚDO */
-    height: 120px; /* Ajuste esta altura para a altura real do seu banner + respiro */
+    height: 140px; /* Ajuste esta altura para a altura real do seu banner + respiro */
     /* Se a altura do banner for variável, use min-height: 120px; */
 }
 
