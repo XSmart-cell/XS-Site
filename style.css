@@ -4,7 +4,7 @@ body {
     font-family: Arial, sans-serif;
     /* Fundo preto com gradiente vermelho no corpo da página */
     background-color: #0a0a0a; /* Cor de fallback */
-    background-image: linear-gradient(to bottom, #0a0a0a, #B00000); /* Gradiente principal */
+    background-image: linear-gradient(to bottom, #a3020d, #B00000); /* Gradiente principal */
     background-attachment: fixed; /* Fixo para cobrir toda a página */
     background-size: cover; /* Tamanho para cobrir toda a área */
     color: #ffffff; /* Cor do texto padrão para branco */
